@@ -80,31 +80,6 @@ Moltin.Files = Object.setPrototypeOf(
 );
 Moltin.Files.endpoint = "files";
 
-Moltin.Files.Create = async function(file) {
-  const { config, storage } = this.request;
-
-  await authenticate(storage);
-
-  const url = `${config.protocol}://${config.host}/${config.version}`;
-
-  const response = await request({
-    uri: `${url}/${this.endpoint}`,
-    method: "POST",
-    headers: {
-      Authorization: `Bearer: ${storage.get("mtoken")}`,
-      "Content-Type": "multipart/form-data",
-      "X-MOLTIN-SDK-LANGUAGE": config.sdk.language,
-      "X-MOLTIN-SDK-VERSION": config.sdk.version
-    },
-    formData: {
-      public: "true",
-      file_name: file.replace(/.+\//, ""),
-      file: fs.createReadStream(file)
-    }
-  });
-
-  return JSON.parse(response);
-};
 Moltin.Files.RemoveAll = removeAll;
 
 module.exports = Moltin;
