@@ -79,7 +79,6 @@ Moltin.Files = Object.setPrototypeOf(
   Moltin.Products
 );
 Moltin.Files.endpoint = "files";
-
 Moltin.Files.RemoveAll = removeAll;
 
 module.exports = Moltin;

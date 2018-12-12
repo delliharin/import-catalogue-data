@@ -3,14 +3,10 @@
   "version": "1.0.0",
   "description": "Scripts to create a Moltin store using a data file",
   "main": "app.js",
-  "scripts": {
-    "precommit": "npm run lint",
-    "lint": "node node_modules/eslint/bin/eslint ./ --fix -f table || true"
-  },
   "author": "George FitzGibbons",
   "license": "MIT",
   "dependencies": {
-    "@moltin/request": "^1.2.0",
+    "@moltin/request": "^1.4.1",
     "@moltin/sdk": "3.2.0",
     "csv": "^4.0.0",
     "csv-parser": "^2.1.0",
@@ -19,19 +15,5 @@
     "minimist": "^1.2.0",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5"
-  },
-  "devDependencies": {
-    "babel-eslint": "^8.2.1",
-    "eslint": "^4.15.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-config-standard": "^11.0.0-beta.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-prettier": "^2.4.0",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "husky": "^0.14.3",
-    "lint-staged": "^6.0.0",
-    "prettier": "^1.14.3"
   }
 }

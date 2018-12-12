@@ -7,8 +7,8 @@ To create your catalog in Moltin you'll need [node.js](https://nodejs.org/en/)
 * Set up two environment variables
 
 ```
-export MOLTIN_CLIENT_ID="XXXXX"
-export MOLTIN_CLIENT_SECRET="XXXXX"
+NEW_SITE_CLIENT_ID=
+NEW_SITE_SECRET=
 ```
 
 * Install packages

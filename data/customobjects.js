@@ -10,7 +10,7 @@ const client = new MoltinClient({
 });
 
 module.exports = async function(path, catalog) {
-  // const flows = await client.get("flows");
+  const flows = await client.get("flows");
   //pass in your custom flow id
   const flowId = "";
   if (flowId === "") {

@@ -13,8 +13,7 @@ module.exports = async function(path, catalog) {
   var flowId;
   const flows = await client.get("flows");
   var flowId;
-
-  if (Object.keys(productFlow).id == "undefined") {
+  if (flowId === "") {
     //create flow for Products
     var data = {
       type: "flow",
@@ -23,10 +22,10 @@ module.exports = async function(path, catalog) {
       description: "Extends the default product object",
       enabled: true
     };
-    const productFlow = await newSite.post("flows", data);
+    const productFlow = await client.post("flows", data);
     flowId = productFlow.data.id;
   } else {
-    flowId = productFlow.data[0].id;
+    flowId = flows.data[0].id;
   }
 
   var fields = Object.keys(catalog.inventory[0]);
@@ -87,7 +86,10 @@ function checker(value) {
     "gtin",
     "image_link",
     "product_type",
-    "category"
+    "category",
+    "cost",
+    "image_url",
+    "name"
   ];
 
   for (var i = 0; i < moltinObjects.length; i++) {
