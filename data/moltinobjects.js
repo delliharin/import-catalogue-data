@@ -12,7 +12,7 @@ const client = new MoltinClient({
 module.exports = async function(path, catalog) {
   var flowId;
   const flows = await client.get("flows");
-  if (isEmpty(flows)) {
+  if (isEmpty(flows.data)) {
     //create flow for Products
     var data = {
       type: "flow",
