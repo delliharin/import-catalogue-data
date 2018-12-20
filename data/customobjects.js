@@ -13,7 +13,7 @@ module.exports = async function(path, catalog) {
   const flows = await client.get("flows");
   //pass in your custom flow id
   const flowId = "";
-  if (flowId === "") {
+  if (isEmpty(flowId)) {
     //create flow for Products
     var data = {
       type: "flow",
@@ -69,5 +69,9 @@ module.exports = async function(path, catalog) {
       }
     }
     return true;
+  }
+
+  function isEmpty(obj) {
+    return !obj || Object.keys(obj).length === 0;
   }
 };

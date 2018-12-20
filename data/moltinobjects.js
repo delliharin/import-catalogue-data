@@ -12,8 +12,7 @@ const client = new MoltinClient({
 module.exports = async function(path, catalog) {
   var flowId;
   const flows = await client.get("flows");
-  var flowId;
-  if (flowId === "") {
+  if (isEmpty(flows)) {
     //create flow for Products
     var data = {
       type: "flow",
@@ -64,6 +63,9 @@ module.exports = async function(path, catalog) {
   }
 };
 
+function isEmpty(obj) {
+  return !obj || Object.keys(obj).length === 0;
+}
 //add in defualt moltin fields.  This is just a general list.  You may need to adjust.
 function checker(value) {
   var moltinObjects = [

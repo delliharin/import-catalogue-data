@@ -1,7 +1,6 @@
 "use strict";
 
 const fs = require("fs");
-// const Moltin = require("../moltin");
 const path = require("path");
 const FormData = require("form-data");
 var request = require("request");
@@ -13,13 +12,11 @@ module.exports = async function(path, catalog) {
     client_id: process.env.NEW_SITE_CLIENT_ID,
     client_secret: process.env.NEW_SITE_SECRET
   });
-  console.log("moltin", moltin);
   //Primary Image	and Image 2
   for (let image of catalog.inventory) {
     console.log("Uploading %s", image.image_url);
     const fileName = image.sku;
     const fileLink = image.image_url;
-    console.log("fileLink", fileLink);
 
     const options = {
       url: fileLink,
@@ -27,7 +24,6 @@ module.exports = async function(path, catalog) {
       encoding: null,
       resolveWithFullResponse: true
     };
-    console.log("file options", options);
 
     request.get(options, async (err, response, body) => {
       try {
@@ -38,8 +34,6 @@ module.exports = async function(path, catalog) {
         const headers = {
           "Content-Type": formData.getHeaders()["content-type"]
         };
-        console.log("headers", headers);
-        console.log("formData", formData);
 
         const newFiles = await moltin.post(
           "files",
