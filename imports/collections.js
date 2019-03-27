@@ -4,14 +4,14 @@ const Moltin = require("../moltin");
 const fs = require("fs");
 
 module.exports = async function(path, catalog) {
-  var uniqueCollection = removeDuplicates(catalog.inventory, "product_type");
+  var uniqueCollection = removeDuplicates(catalog.inventory, "collection");
   for (let collection of uniqueCollection) {
-    console.log("Creating collection %s", collection.product_type);
-    const collectionM = await Moltin.product_type.Create({
+    console.log("Creating collection %s", collection.collection);
+    const collectionM = await Moltin.Collections.Create({
       type: "collection",
-      name: collection.product_type,
-      description: collection.product_type,
-      slug: collection.product_type.replace(/[^A-Z0-9]/gi, "_"),
+      name: collection.collection,
+      description: collection.collection,
+      slug: collection.collection.replace(/[^A-Z0-9]/gi, "_"),
       status: "live"
     });
   }

@@ -27,6 +27,7 @@ const imports = {
     "Currency",
     "Collections"
   ]) {
+    console.log(argv.clean(entity.toLowerCase()));
     if (argv.clean(entity.toLowerCase())) {
       console.log("Catalog cleanup: removing %s", entity);
       await Moltin[entity].RemoveAll();

@@ -85,12 +85,7 @@ function checker(value) {
     "main_image",
     "relationships",
     "brand",
-    "gtin",
-    "image_link",
-    "product_type",
     "category",
-    "cost",
-    "image_url",
     "name"
   ];
 

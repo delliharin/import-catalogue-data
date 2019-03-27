@@ -4,16 +4,16 @@ const Moltin = require("../moltin");
 const fs = require("fs");
 
 module.exports = async function(path, catalog) {
-  var uniqueBrand = removeDuplicates(catalog.inventory, "manufacturer");
+  var uniqueBrand = removeDuplicates(catalog.inventory, "brand");
 
   for (let brand of uniqueBrand) {
     //split based on delimantor
-    console.log("Creating brand %s", brand.manufacturer);
+    console.log("Creating brand %s", brand.brand);
     const brandM = await Moltin.Brands.Create({
       type: "brand",
-      name: brand.manufacturer,
-      description: brand.manufacturer,
-      slug: brand.manufacturer.replace(/[^A-Z0-9]/gi, "_"),
+      name: brand.brand,
+      description: brand.brand,
+      slug: brand.brand.replace(/[^A-Z0-9]/gi, "_"),
       status: "live"
     });
   }

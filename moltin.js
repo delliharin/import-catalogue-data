@@ -69,7 +69,6 @@ const removeAll = function() {
 
 //Delete all
 Moltin.Categories.RemoveAll = removeAll;
-
 Moltin.Brands.RemoveAll = removeAll;
 Moltin.Products.RemoveAll = removeAll;
 Moltin.Currencies.RemoveAll = removeAll;

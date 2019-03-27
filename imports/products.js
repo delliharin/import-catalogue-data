@@ -35,7 +35,7 @@ module.exports = async function(path, catalog) {
       status: "live",
       price: [
         {
-          amount: Number(product.price_m) * 100,
+          amount: Number(product.price_moltin) * 100,
           currency: "USD",
           includes_tax: true
         }
@@ -54,9 +54,9 @@ module.exports = async function(path, catalog) {
     //TIE PRODUCT to Category
     if (categoriesToTie != 0) {
       //if there is a delimiter heirciery then split
-      var parentCategory = product.category.split(">");
+      // var parentCategory = product.category.split(">");
       var productsCategory = categoriesM.data.find(function(productsCategory) {
-        return productsCategory.name === parentCategory[0];
+        return productsCategory.name === product.category;
       });
 
       await Moltin.Products.CreateRelationships(
@@ -71,7 +71,7 @@ module.exports = async function(path, catalog) {
       var productsCollection = collectionM.data.find(function(
         productsCollection
       ) {
-        return productsCollection.name === product.product_type;
+        return productsCollection.name === product.collection;
       });
 
       await Moltin.Products.CreateRelationships(
@@ -85,7 +85,7 @@ module.exports = async function(path, catalog) {
     const brandToTie = brandsM.meta.results.total;
     if (brandToTie != 0) {
       var productsbrand = brandsM.data.find(function(productsbrand) {
-        return productsbrand.name === product.manufacturer;
+        return productsbrand.name === product.brand;
       });
 
       await Moltin.Products.CreateRelationships(

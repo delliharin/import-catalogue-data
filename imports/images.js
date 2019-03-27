@@ -14,9 +14,9 @@ module.exports = async function(path, catalog) {
   });
   //Primary Image	and Image 2
   for (let image of catalog.inventory) {
-    console.log("Uploading %s", image.image_url);
+    console.log("Uploading %s", image.main_image);
     const fileName = image.sku;
-    const fileLink = image.image_url;
+    const fileLink = image.main_image;
 
     const options = {
       url: fileLink,

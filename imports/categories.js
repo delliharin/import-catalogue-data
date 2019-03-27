@@ -8,7 +8,6 @@ module.exports = async function(path, catalog) {
 
   for (let category of uniqueCategory) {
     console.log("Creating Category %s", category.category);
-
     //split based on delimantor
     var parentCategory = category.category.split(">");
     if (parentCategory[1]) {
